@@ -41,6 +41,7 @@ const Controlls = ({
           <input
             className="controls__limit-input"
             type="number"
+            min="0"
             value={limitValue}
             onChange={(e) => handleLimitValue(e.target.value)}
           />

@@ -20,8 +20,13 @@ const App = () => {
     setExcludeSpaces(!excludeSpaces)
   }
 
-  const handleLimitValue = () => {
-    setLimitValue(!limitCharacter)
+  const handleLimitValue = (value) => {
+    const newLimit = value === "" ? "" : Math.max(0, Number(value))
+    setLimitValue(newLimit)
+
+    if (limitCharacter && newLimit !== "" && text.length > newLimit) {
+      setText(text.slice(0, newLimit))
+    }
   }
 
   const handleChangeTextarea = (e) => {
